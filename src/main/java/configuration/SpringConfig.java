@@ -1,4 +1,4 @@
-package config;
+package configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class SpringConfig {
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/javaweb");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/frameworkspring");
         dataSource.setUsername("root");
         dataSource.setPassword("Nhattai1996");
         return dataSource;
@@ -43,9 +43,9 @@ public class SpringConfig {
 
     final Properties additionalProperties() {
         final Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
+        hibernateProperties.setProperty("hibernate.show_sql", "false");
         hibernateProperties.setProperty("hibernate.format_sql", "true");
 
         return hibernateProperties;
